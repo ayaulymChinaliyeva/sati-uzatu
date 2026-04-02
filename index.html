@@ -43,7 +43,6 @@
           <button type="button" class="lang-btn active" data-lang="kk">
             Қаз
           </button>
-          <button type="button" class="lang-btn" data-lang="en">En</button>
           <button type="button" class="lang-btn" data-lang="ru">Ru</button>
         </div>
       </div>
@@ -205,7 +204,7 @@
             <p class="invite-text-line" data-i18n="invite_text_1">
               Сіздерді қызымыз
             </p>
-            <p class="invite-names" data-i18n="invite_names">Салтанаттың</p>
+            <p class="invite-names" data-i18n="invite_names">Салтанат</p>
             <p class="invite-text-line" data-i18n="invite_text_2">
               ұядан ұшқан күні – ұзату тойының
             </p>
@@ -481,49 +480,6 @@
           thanks_close: "Жабу",
           footer_text: "Mahabbatpen jasalğan © 2026",
         },
-        en: {
-          nav_photo: "Photo",
-          nav_invite: "Invitation",
-          nav_form: "Details",
-          intro_kicker: "Saltanat",
-          intro_title1: "Uzatu",
-          intro_title2: "Invitation",
-          intro_date: "14.06.2026",
-          intro_hint: "Scroll down",
-          countdown_days: "Days",
-          countdown_hours: "Hours",
-          countdown_minutes: "Minutes",
-          countdown_seconds: "Seconds",
-          invite_greeting: "Dear Guest!",
-          invite_text_1: "We invite you",
-          invite_names: "Saltanat",
-          invite_text_2:
-            "to be an honored guest at one of the most important days",
-          invite_text_3: "of our lives –",
-          invite_text_4: "uzatu celebration.",
-          invite_date_label: "Date",
-          invite_date: "June 14",
-          invite_time_label: "Time",
-          invite_time: "18:00",
-          invite_address_label: "Address",
-          invite_address: "Almaty city, Millenium Hall",
-          invite_hosts_label: "Celebration host:",
-          invite_hosts: "Taiman-Raikhan",
-          invite_closing: "We look forward to seeing you 🤍",
-          invite_button: "Accept invitation",
-          form_title: "Details",
-          form_main_label: "First and last name",
-          form_main_placeholder: "For example: John Smith",
-          form_spouse_toggle: "I will come with my spouse",
-          form_spouse_label: "Spouse’s first and last name",
-          form_spouse_placeholder: "For example: Jane Smith",
-          form_finish_button: "Finish",
-          thanks_kicker: "Thank you!",
-          thanks_title: "Thank you for accepting our invitation",
-          thanks_text: "We will be happy to see you.",
-          thanks_close: "Close",
-          footer_text: "Made with love © 2026",
-        },
         ru: {
           nav_photo: "Фото",
           nav_invite: "Приглашение",
@@ -538,11 +494,11 @@
           countdown_minutes: "Минут",
           countdown_seconds: "Секунд",
           invite_greeting: "Уважаемый гость!",
-          invite_text_1: "Приглашаю вас",
+          invite_text_1: "Приглашаю вас на узату торжество нашей дочери - ",
           invite_names: "Салтанат",
-          invite_text_2: "стать почётным гостем одного из самых важных дней",
-          invite_text_3: "моей жизни –",
-          invite_text_4: "узату торжества.",
+          invite_text_2:
+            "стать почётным гостем одного из самых важных дней нашей жизни",
+          invite_text_4: "и разделить с нами эту радость.",
           invite_date_label: "Дата",
           invite_date: "14 июня",
           invite_time_label: "Время",
@@ -699,18 +655,42 @@
           });
 
         var thanks = document.getElementById("thanks");
-        document
-          .getElementById("guest-form")
-          .addEventListener("submit", function (e) {
+        var guestForm = document.getElementById("guest-form");
+        var submitBtn = guestForm
+          ? guestForm.querySelector('button[type="submit"]')
+          : null;
+
+        if (guestForm) {
+          guestForm.addEventListener("submit", function (e) {
+            if (guestForm.dataset.submitted === "true") {
+              e.preventDefault();
+              return;
+            }
+
+            guestForm.dataset.submitted = "true";
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.setAttribute("aria-disabled", "true");
+            }
+
             thanks.hidden = false;
             document.body.classList.add("no-scroll");
           });
+        }
 
         document
           .getElementById("close-thanks")
           .addEventListener("click", function () {
             thanks.hidden = true;
             document.body.classList.remove("no-scroll");
+
+            if (guestForm) {
+              guestForm.dataset.submitted = "false";
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.removeAttribute("aria-disabled");
+            }
           });
 
         const spouseUI = document.getElementById("with-spouse-ui");
