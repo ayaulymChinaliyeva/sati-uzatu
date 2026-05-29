@@ -296,21 +296,9 @@ a {
   }
 }
 
-.intro-kicker {
-  width: 520px;
-  max-width: 80vw;
-  height: auto;
-  margin: 4rem 0 -1rem auto;
-  animation: fadeInUp 1.2s ease-out;
-}
+.intro-kicker {height: clamp(20rem, 40vw, 50rem);width: auto;margin: 4rem 0 0 0;animation: fadeInUp 1.2s ease-out;}
 
-.intro-kicker img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 80px;
-  object-fit: contain;
-}
+.intro-kicker svg {height: 100%;width: auto;}
 
 .intro-title {
   font-family: "Cormorant Infant", serif;
@@ -1027,12 +1015,7 @@ body.intro-lift .intro-bg {
     transform: translateY(120px);
   }
 
-  .intro-kicker {
-  width: 280px;
-  max-width: 85vw;
-  height: auto;
-  margin: 4rem 0 -0.5rem auto;
-  }
+  .intro-kicker {height: clamp(15rem, 30vw, 35rem);margin: 4rem 0 0 0;}
 
   .intro-title {
     font-size: clamp(2rem, 8vw, 4.5rem);
