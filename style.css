@@ -140,12 +140,6 @@ a {
   gap: 10px;
 }
 
-.intro-kicker img {
-  height: 100%;
-  width: auto;
-  display: block;
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -303,15 +297,16 @@ a {
 }
 
 .intro-kicker {
-  height: clamp(20rem, 40vw, 50rem);
-  width: auto;
-  margin: 4rem 0 0 0;
+  width: clamp(220px, 34vw, 520px);
+  height: auto;
+  margin: 4rem 0 -1rem auto;
   animation: fadeInUp 1.2s ease-out;
 }
 
-.intro-kicker svg {
-  height: 100%;
-  width: auto;
+.intro-kicker img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .intro-title {
@@ -1030,9 +1025,10 @@ body.intro-lift .intro-bg {
   }
 
   .intro-kicker {
-    height: clamp(15rem, 30vw, 35rem);
-    margin: 4rem 0 0 0;
-  }
+  width: 260px;
+  height: auto;
+  margin: 4rem 0 -0.5rem auto;
+}
 
   .intro-title {
     font-size: clamp(2rem, 8vw, 4.5rem);
