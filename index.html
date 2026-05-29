@@ -291,9 +291,10 @@
           <iframe
             name="hidden_iframe"
             id="hidden_iframe"
-            style="display: none"
+            style="display:none"
             onload="
               if (window.submitted) {
+                document.getElementById('guest-form').reset();
                 showThanks();
               }
             "
@@ -671,6 +672,12 @@
         function showThanks() {
           document.getElementById("thanks").hidden = false;
           document.body.classList.add("no-scroll");
+          const thanksBox = document.getElementById("thanks-box");
+          thanksBox.classList.add("show");
+          thanksBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
         }
 
         // Countdown functionality
