@@ -140,6 +140,12 @@ a {
   gap: 10px;
 }
 
+.intro-kicker img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
 @keyframes pulse {
   0%,
   100% {
