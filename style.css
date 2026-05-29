@@ -1089,6 +1089,18 @@ body.intro-lift .intro-bg {
   }
 }
 
+@media (max-width: 768px) {
+  .thanks-card h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .thanks-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 @media (max-width: 480px) {
   .intro-overlay {
     padding: 1rem 0.8rem 2.5rem 0.8rem;
