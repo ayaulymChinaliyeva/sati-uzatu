@@ -297,16 +297,19 @@ a {
 }
 
 .intro-kicker {
-  width: clamp(220px, 34vw, 520px);
+  width: 520px;
+  max-width: 80vw;
   height: auto;
   margin: 4rem 0 -1rem auto;
   animation: fadeInUp 1.2s ease-out;
 }
 
 .intro-kicker img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  min-height: 80px;
+  object-fit: contain;
 }
 
 .intro-title {
@@ -1025,10 +1028,11 @@ body.intro-lift .intro-bg {
   }
 
   .intro-kicker {
-  width: 260px;
+  width: 280px;
+  max-width: 85vw;
   height: auto;
   margin: 4rem 0 -0.5rem auto;
-}
+  }
 
   .intro-title {
     font-size: clamp(2rem, 8vw, 4.5rem);
