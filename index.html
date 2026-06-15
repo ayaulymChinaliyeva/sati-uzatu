@@ -656,13 +656,6 @@
             }
           });
 
-        const spouseUI = document.getElementById("with-spouse-ui");
-        const spouseHidden = document.getElementById("with-spouse-hidden");
-
-        spouseUI.addEventListener("change", function () {
-          spouseHidden.disabled = !spouseUI.checked;
-        });
-
         function showThanks() {
           document.getElementById("thanks").hidden = false;
           document.body.classList.add("no-scroll");
@@ -676,7 +669,7 @@
 
         // Countdown functionality
         function startCountdown() {
-          const eventDate = new Date("2026-08-30T18:00:00+05:00"); // August 30, 2026, 6:00 PM Almaty time
+          const eventDate = new Date("2026-08-30T17:00:00+05:00"); // August 30, 2026, 5:00 PM Almaty time
 
           function updateCountdown() {
             const now = new Date().getTime();
